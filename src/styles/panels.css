@@ -1,0 +1,311 @@
+/* ============================================================
+   panels.css — Hold, Next Queue, Stats, Settings panels
+   ============================================================ */
+
+/* Common panel styles */
+.panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: var(--panel-padding);
+}
+
+.panel-title {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-label);
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+/* Hold Display */
+.hold-display {
+  width: 100px;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+.hold-display .panel-title {
+  display: none;
+}
+
+.hold-display.locked .piece-preview {
+  opacity: 0.3;
+}
+
+/* Next Queue */
+.next-queue {
+  width: 100px;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+.next-queue .panel-title {
+  display: none;
+}
+
+.next-queue .piece-preview {
+  margin-bottom: 6px;
+}
+
+.next-queue .piece-preview:last-child {
+  margin-bottom: 0;
+}
+
+/* Piece Preview (used in Hold and Next) */
+.piece-preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.piece-preview canvas {
+  display: block;
+}
+
+/* Stats Display */
+.stats-display {
+  width: 80px;
+}
+
+.stat-row {
+  margin-bottom: 8px;
+}
+
+.stat-row:last-child {
+  margin-bottom: 0;
+}
+
+.stat-label {
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-label);
+  margin-bottom: 2px;
+}
+
+.stat-value {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  font-variant-numeric: tabular-nums;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* Settings Panel */
+.settings-panel {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  width: 340px; /* Made wider for better readability */
+  z-index: 100;
+}
+
+.settings-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  color: var(--text-secondary);
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 12px;
+  z-index: 99;
+  transition: color 0.2s;
+}
+
+.settings-toggle:hover {
+  color: var(--text-primary);
+}
+
+.setting-field {
+  margin-bottom: 10px;
+}
+
+.setting-field:last-child {
+  margin-bottom: 0;
+}
+
+.setting-field label {
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-label);
+  margin-bottom: 4px;
+}
+
+.setting-field input {
+  width: 100%;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  color: var(--text-primary);
+  padding: 6px 8px;
+  font-family: 'JetBrains Mono', 'Consolas', monospace;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.setting-field input:focus {
+  border-color: var(--border-highlight);
+}
+
+.settings-reset {
+  width: 100%;
+  margin-top: 12px;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  color: var(--text-secondary);
+  padding: 6px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.settings-reset:hover {
+  color: var(--text-primary);
+  border-color: var(--border-highlight);
+}
+
+/* Settings Tabs */
+.settings-tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.settings-tab {
+  flex: 1;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 6px 0;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.settings-tab:hover {
+  color: var(--text-primary);
+}
+
+.settings-tab.active {
+  color: var(--color-i);
+  border-bottom-color: var(--color-i);
+}
+
+.settings-body {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* Keybind List */
+.keybind-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Increased gap */
+}
+
+.keybind-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.keybind-label {
+  font-size: 13px; /* Increased font size */
+  color: var(--text-secondary);
+  white-space: nowrap;
+  min-width: 90px;
+}
+
+.keybind-keys {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.keybind-key {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--text-primary);
+  font-family: 'JetBrains Mono', 'Consolas', monospace;
+  font-size: 13px; /* Increased font size */
+  padding: 4px 8px; /* Increased padding */
+  cursor: pointer;
+  transition: all 0.15s;
+  min-width: 32px;
+  justify-content: center;
+}
+
+.keybind-key:hover {
+  border-color: var(--border-highlight);
+}
+
+.keybind-key.listening {
+  border-color: var(--color-i);
+  color: var(--color-i);
+  animation: pulse-border 1s infinite;
+}
+
+@keyframes pulse-border {
+  0%, 100% { border-color: var(--color-i); }
+  50% { border-color: transparent; }
+}
+
+.keybind-remove {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 14px; /* Increased font size */
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+  opacity: 0.5;
+  transition: opacity 0.15s;
+}
+
+.keybind-remove:hover {
+  opacity: 1;
+  color: var(--color-z);
+}
+
+.keybind-add {
+  background: none;
+  border: 1px dashed var(--border-color);
+  border-radius: 4px;
+  color: var(--text-secondary);
+  font-size: 14px; /* Increased font size */
+  width: 28px;
+  height: 26px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+
+.keybind-add:hover {
+  border-color: var(--border-highlight);
+  color: var(--text-primary);
+}

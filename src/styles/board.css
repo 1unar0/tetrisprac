@@ -1,0 +1,11 @@
+/* ============================================================
+   board.css — Board Canvas Styles
+   ============================================================ */
+
+.board-canvas {
+  display: block;
+  background: var(--bg-board);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  image-rendering: pixelated;
+}

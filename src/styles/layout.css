@@ -1,0 +1,118 @@
+/* ============================================================
+   layout.css — Main Game Layout (Responsive Flexbox)
+   Desktop: [Hold] [Board] [Next]
+   Mobile: Stacked vertically with controls at bottom
+   ============================================================ */
+
+.game-container {
+  display: flex;
+  align-items: flex-start; /* Align panels to top of board */
+  justify-content: center;
+  gap: 16px;
+  padding: 16px;
+  max-height: 100vh;
+}
+
+.left-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.center-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+/* Game over overlay */
+.game-over-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  border-radius: var(--border-radius);
+}
+
+.game-over-overlay h2 {
+  color: var(--color-z);
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.game-over-overlay p {
+  color: var(--text-secondary);
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.action-text-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--primary-accent);
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 2px 4px rgba(0, 0, 0, 0.8);
+  pointer-events: none;
+  animation: floatUpFade 1.5s ease-out forwards;
+  z-index: 100;
+}
+
+@keyframes floatUpFade {
+  0% { opacity: 0; transform: translate(-50%, -30%); }
+  20% { opacity: 1; transform: translate(-50%, -50%); }
+  80% { opacity: 1; transform: translate(-50%, -50%); }
+  100% { opacity: 0; transform: translate(-50%, -70%); }
+}
+
+.board-wrapper {
+  position: relative;
+}
+
+/* Responsive: Mobile */
+@media (max-width: 768px) {
+  .game-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .left-panel,
+  .right-panel {
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  :root {
+    --cell-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --cell-size: 18px;
+  }
+}

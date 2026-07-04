@@ -1,0 +1,74 @@
+/* ============================================================
+   index.css — Global Styles & CSS Variables
+   Dark, clean, minimal — Blockfish/Jstris inspired.
+   ============================================================ */
+
+/* CSS Variables */
+:root {
+  /* Piece colors (Guideline standard) */
+  --color-i: #00FFFF;
+  --color-j: #0046FF;
+  --color-l: #FF8800;
+  --color-o: #FFDD00;
+  --color-s: #00FF00;
+  --color-t: #AA00FF;
+  --color-z: #FF0033;
+
+  /* UI colors */
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #141414;
+  --bg-board: #0d0d0d;
+  --bg-panel: #111111;
+  --grid-line: rgba(255, 255, 255, 0.04);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-highlight: rgba(255, 255, 255, 0.15);
+  --text-primary: #e0e0e0;
+  --text-secondary: #666666;
+  --text-label: #888888;
+
+  /* Sizing */
+  --cell-size: 30px;
+  --cell-gap: 1px;
+  --panel-padding: 12px;
+  --border-radius: 4px;
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Prevent text selection during gameplay */
+.game-container {
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+
+/* Monospace for numbers/stats */
+.mono {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  font-variant-numeric: tabular-nums;
+}
